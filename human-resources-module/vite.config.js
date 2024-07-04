@@ -6,18 +6,15 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "app",
-      remotes: {
-        HumanResourcesModule: "http://localhost:5002/assets/human-resources-module.js",
-        LegalModule: "http://localhost:5003/assets/legal-module.js"
+      name: "human-resources-module",
+      filename: "human-resources-module.js",
+      exposes: {
+        "./HumanResourcesPage": "./src"
       },
       shared: ["react", "react-dom", "react-router-dom"]
     })
   ],
   build: {
-    modulePreload: false,
-    target: "esnext",
-    minify: false,
-    cssCodeSplit: false
+    target: 'esnext' // browsers can handle the latest ES features
   }
 })
