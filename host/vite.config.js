@@ -8,8 +8,8 @@ export default defineConfig({
     federation({
       name: "app",
       remotes: {
-        HumanResourcesModule: "http://localhost:5002/assets/human-resources-module.js",
-        LegalModule: "http://localhost:5003/assets/legal-module.js"
+        HumanResourcesModule: "http://localhost:3001/assets/human-resources-module.js",
+        LegalModule: "http://localhost:3002/assets/legal-module.js"
       },
       shared: ["react", "react-dom", "react-router-dom"]
     })

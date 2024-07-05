@@ -1,0 +1,37 @@
+services:
+  host:
+    build:
+      context: ./host
+      dockerfile: Dockerfile
+    container_name: host
+    ports:
+      - "3000:80"
+    depends_on:
+      - human_resources_module
+      - legal_module
+    networks:
+      - vite-network
+  
+  human_resources_module:
+    build:
+      context: ./human-resources-module
+      dockerfile: Dockerfile
+    container_name: human_resources_module
+    ports:
+      - "3001:80"
+    networks:
+      - vite-network
+      
+  legal_module:
+    build:
+      context: ./legal-module
+      dockerfile: Dockerfile
+    container_name: legal_module
+    ports:
+      - "3002:80"
+    networks:
+      - vite-network
+
+networks:
+  vite-network:
+    driver: bridge

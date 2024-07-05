@@ -6,7 +6,7 @@ const HumanResourcesPage = () => {
 
   if(user === undefined) return <p>LOADING</p>
 
-  return <div>Bienvenido al módulo de Recursos Humanos <b>{user.firstName} {user.lastName}</b></div>
+  return <div>Bienvenido al módulo de Recursos Humanos <b>{user?.firstName} {user?.lastName}</b></div>
 };
 
 export default HumanResourcesPage;
